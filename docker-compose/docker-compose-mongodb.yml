@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  mongo:
+    container_name: "mongo_core"
+    image: library/mongo:4.4.4    # use official version
+    ports:
+      - 27017:27017   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - my-network
+    restart: always
+
+  # Web-based MongoDB admin interface, written with Node.js and express
+  # Configuration at https://hub.docker.com/_/mongo-express
+  mongo-express:
+    container_name: "mongo_core_express"
+    image: mongo-express
+    ports:
+      - 8081:8081   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    networks:
+      - my-network
+    restart: always
+
+networks:
+  my-network:

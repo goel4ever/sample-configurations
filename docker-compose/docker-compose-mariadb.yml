@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mariadb:
+    container_name: "mariadb_core"
+    image: mariadb # use official version
+    ports:
+      - 3306:3306   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    environment:
+      - MYSQL_USER=unicorn_user
+      - MYSQL_ROOT_PASSWORD=magical_password
+      - MYSQL_PASSWORD=magical_password
+      - MYSQL_DATABASE=my_app_db
+    volumes:
+      - db_data:/var/lib/mysql # persist data even if container shuts down
+    networks:
+      - my-network
+    restart: always
+
+volumes:
+  db_data:  # named volumes can be managed easier using docker-compose
+
+networks:
+  my-network:

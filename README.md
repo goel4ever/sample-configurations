@@ -5,8 +5,8 @@ Sample configurations for rapid prototyping
 ## Index
 
 - [Flyway](./migrations-flyway)
+- [Docker Compose](./docker-compose)
 - [Docker]
-- [Docker Compose]
 - [Swagger]
 
 ## Contribute

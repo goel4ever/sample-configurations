@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: "mysql_core"
+    image: mysql  # use official version
+    ports:
+      - 3306:3306   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    secrets:
+      - db-password
+    environment:
+      - MYSQL_DATABASE=my_app_db
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    volumes:
+      - db-data:/var/lib/mysql # persist data even if container shuts down
+    networks:
+      - my-network
+    restart: always
+
+volumes:
+  db-data:  # named volumes can be managed easier using docker-compose
+
+secrets:
+  db-password:
+    file: password.txt
+
+networks:
+  my-network:

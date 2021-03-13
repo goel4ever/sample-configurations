@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  redis:
+    container_name: "redis_core"
+    image: library/redis:alpine # use official version
+    ports:
+      - 6379:6379   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    networks:
+      - my-network
+    restart: always
+
+networks:
+  my-network:

@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: "postgres_core"
+    image: postgres:11.2-alpine # use official version
+    ports:
+      - 5432:5432   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    secrets:
+      - db-password
+    environment:
+      - POSTGRES_USER=unicorn_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+#      - POSTGRES_PASSWORD=magical_password
+      - POSTGRES_DB=my_app_db
+    volumes:
+      - db_data:/var/lib/postgresql/data/ # persist data even if container shuts down
+    networks:
+      - my-network
+    restart: always
+
+volumes:
+  db_data:  # named volumes can be managed easier using docker-compose
+
+secrets:
+  db-password:
+    file: password.txt
+
+networks:
+  my-network:
