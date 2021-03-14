@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+!nginx.log
 
 # BlueJ files
 *.ctxt

@@ -20,6 +20,12 @@ Check the README.md of each sample to get more details on the structure and what
 docker-compose down
 ```
 
+Use -v flag to remove the volumes if looking to erase all data.
+
+```shell script
+docker-compose down -v
+```
+
 ## Configuration Notes
 
 ### Versioning
@@ -38,10 +44,13 @@ Docker compose versioning in the configuration file is based on docker engine be
 
 ### Infrastructure
 
-- [Prometheus-Grafana](./prometheus-grafana/docker-compose.yml)
 - [ELK](./elasticsearch-logstash-kibana)
+- [Prometheus-Grafana](./prometheus-grafana/docker-compose.yml)
+- [RabbitMQ](./rabbitmq/docker-compose.yml)
 
 ## Credits
 
 - [GitHub - Awesome Compose](https://github.com/docker/awesome-compose)
 - [GitHub - Compose](https://github.com/docker/compose)
+- [GitHub - Docker Samples](https://github.com/dockersamples)
+    - [GitHub - Docker Samples - Example Voting App](https://github.com/dockersamples/example-voting-app)
