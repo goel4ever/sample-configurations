@@ -3,22 +3,25 @@ version: "3.8"
 services:
   rabbitmq:
     container_name: "rabbitmq_core"
-    image: rabbitmq # use official version
+    image: library/rabbitmq:management # use official version
     ports:
       - 15672:15672
       - 5672:5672
     environment:
-      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-      RABBITMQ_DEFAULT_USER: "rabbitmq"
-      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
       RABBITMQ_DEFAULT_VHOST: "/"
     volumes:
       - "./enabled_plugins:/etc/rabbitmq/enabled_plugins"
 #      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro"
+      - "rabbitmq_data:/data"
     networks:
       - my-network
     labels:
       NAME: "rabbitmq1"
+
+volumes:
+  rabbitmq_data:
 
 networks:
   my-network:

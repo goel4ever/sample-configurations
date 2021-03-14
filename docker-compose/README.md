@@ -36,6 +36,7 @@ Docker compose versioning in the configuration file is based on docker engine be
 
 ### Databases
 
+- [Cassandra](cassandra/docker-compose.yml)
 - [Maria DB](./docker-compose-mariadb.yml)
 - [MongoDB + Mongo-Express](./docker-compose-mongodb.yml)
 - [MySQL](./docker-compose-mysql.yml)
@@ -46,7 +47,11 @@ Docker compose versioning in the configuration file is based on docker engine be
 
 - [ELK](./elasticsearch-logstash-kibana)
 - [Prometheus-Grafana](./prometheus-grafana/docker-compose.yml)
+
+### Messaging
+
 - [RabbitMQ](./rabbitmq/docker-compose.yml)
+- [Kafka](./docker-compose-zk-single-kafka-single.yml)
 
 ## Credits
 
