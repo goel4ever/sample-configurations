@@ -12,13 +12,13 @@ services:
       - MYSQL_DATABASE=my_app_db
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
     volumes:
-      - db-data:/var/lib/mysql # persist data even if container shuts down
+      - mysql-data:/var/lib/mysql # persist data even if container shuts down
     networks:
       - my-network
     restart: always
 
 volumes:
-  db-data:  # named volumes can be managed easier using docker-compose
+  mysql-data:  # named volumes can be managed easier using docker-compose
 
 secrets:
   db-password:

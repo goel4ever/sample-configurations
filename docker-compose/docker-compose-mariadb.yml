@@ -13,13 +13,13 @@ services:
       - MYSQL_PASSWORD=magical_password
       - MYSQL_DATABASE=my_app_db
     volumes:
-      - db_data:/var/lib/mysql # persist data even if container shuts down
+      - mariadb_data:/var/lib/mysql # persist data even if container shuts down
     networks:
       - my-network
     restart: always
 
 volumes:
-  db_data:  # named volumes can be managed easier using docker-compose
+  mariadb_data:  # named volumes can be managed easier using docker-compose
 
 networks:
   my-network:

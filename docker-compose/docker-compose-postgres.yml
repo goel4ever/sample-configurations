@@ -14,13 +14,13 @@ services:
 #      - POSTGRES_PASSWORD=magical_password
       - POSTGRES_DB=my_app_db
     volumes:
-      - db_data:/var/lib/postgresql/data/ # persist data even if container shuts down
+      - postgres_data:/var/lib/postgresql/data/ # persist data even if container shuts down
     networks:
       - my-network
     restart: always
 
 volumes:
-  db_data:  # named volumes can be managed easier using docker-compose
+  postgres_data:  # named volumes can be managed easier using docker-compose
 
 secrets:
   db-password:

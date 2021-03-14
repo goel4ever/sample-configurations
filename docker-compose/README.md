@@ -36,6 +36,10 @@ Docker compose versioning in the configuration file is based on docker engine be
 - [Postgres](./docker-compose-postgres.yml)
 - [Redis](./docker-compose-redis.yml)
 
+### Infrastructure
+
+- [Prometheus-Grafana](./prometheus-grafana/docker-compose.yml)
+
 ## Credits
 
 - [GitHub - Awesome Compose](https://github.com/docker/awesome-compose)
