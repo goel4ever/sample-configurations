@@ -37,6 +37,7 @@ Docker compose versioning in the configuration file is based on docker engine be
 ### Databases
 
 - [Cassandra](cassandra/docker-compose.yml)
+- [DynamoDB](./docker-compose-dynamodb.yml)
 - [Maria DB](./docker-compose-mariadb.yml)
 - [MongoDB + Mongo-Express](./docker-compose-mongodb.yml)
 - [MySQL](./docker-compose-mysql.yml)
@@ -59,3 +60,4 @@ Docker compose versioning in the configuration file is based on docker engine be
 - [GitHub - Compose](https://github.com/docker/compose)
 - [GitHub - Docker Samples](https://github.com/dockersamples)
     - [GitHub - Docker Samples - Example Voting App](https://github.com/dockersamples/example-voting-app)
+- [AWS Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html)
