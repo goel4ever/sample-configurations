@@ -1,11 +1,11 @@
 # Sample Configurations
 
-Sample configurations for rapid prototyping
+Sample configurations created for various tools, for rapid prototyping
 
-## Index
+## List of tools
 
-- [Flyway](./migrations-flyway)
 - [Docker Compose](./docker-compose)
+- [Flyway](./migrations-flyway)
 - [Docker]
 - [Swagger]
 
