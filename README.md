@@ -1,14 +1,21 @@
-# Sample Configurations
+# Configurations
 
-Sample configurations created for various tools, for rapid prototyping
+Sample configurations created for various tools for rapid prototyping
 
-## List of tools
+## List of configurations by tools
 
 - [Docker Compose](./docker-compose)
 - [Flyway](./migrations-flyway)
+- [Liquibase]
 - [Docker]
+- [Kubernetes]
+- [Terraform]
+- [AWS]
 - [Swagger]
+- [TypeScript]
+- [Nodejs]
+- [Bash Scripts]
 
 ## Contribute
 
-Feel free to contribute or suggest edits
+Feel free create a PR to contribute or suggest edits
