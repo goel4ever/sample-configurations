@@ -12,6 +12,7 @@ Sample configurations created for various tools for rapid prototyping
 - [Terraform]
 - [AWS]
 - [Swagger]
+- [SpringBoot]
 - [TypeScript]
 - [Nodejs]
 - [Bash Scripts]
