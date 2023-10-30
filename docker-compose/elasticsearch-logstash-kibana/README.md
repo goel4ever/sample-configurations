@@ -7,7 +7,7 @@ Project structure:
 └── docker-compose.yml
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_docker-compose.yml_](docker-compose.yaml)
 ```
 services:
   elasticsearch:
