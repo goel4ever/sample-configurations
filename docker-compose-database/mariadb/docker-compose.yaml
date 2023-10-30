@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mariadb:
     container_name: "mariadb_core"
-    image: mariadb # use official version
+    image: mariadb:latest # use official version
     ports:
       - 3306:3306   # Can skip if configuring backend in the same configuration file, to avoid exposure
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW

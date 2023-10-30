@@ -4,7 +4,7 @@ Sample configurations created for various tools for rapid prototyping
 
 ## List of configurations by tools
 
-- [Docker Compose](./docker-compose)
+- [Docker Compose](./docker-compose-database)
 - [Flyway](./migrations-flyway)
 - [Liquibase]
 - [Docker]
