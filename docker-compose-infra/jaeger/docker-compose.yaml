@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  jaeger:
+    container_name: "jaeger_core"
+    image: jaegertracing/all-in-one:latest # use official version
+    ports:
+      - "16686:16686"
+      - "4318:4318"
+    environment:
+      - LOG_LEVEL=debug
+    networks:
+      - my-network
+    restart: unless-stopped
+
+networks:
+  my-network:
