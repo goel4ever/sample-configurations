@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  prometheus:
+    container_name: "prometheus_core"
+    image: prom/prometheus # use official version
+    ports:
+      - 9090:9090   # Can skip if configuring backend in the same configuration file, to avoid exposure
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - ./prometheus_data:/etc/prometheus # persist data even if container shuts down
+    networks:
+      - my-network
+    restart: unless-stopped
+
+volumes:
+  prometheus_data:  # named volumes can be managed easier using docker-compose
+
+networks:
+  my-network:
