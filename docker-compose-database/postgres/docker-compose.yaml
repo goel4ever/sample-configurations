@@ -3,9 +3,9 @@ version: "3.8"
 services:
   postgres:
     container_name: "postgres_core"
-    image: postgres:11.2-alpine # use official version
+    image: postgres:14.10-alpine # use official version
     ports:
-      - 5432:5432   # Can skip if configuring backend in the same configuration file, to avoid exposure
+      - "5432:5432"   # Can skip if configuring backend in the same configuration file, to avoid exposure
     secrets:
       - db-password
     environment:
@@ -13,6 +13,7 @@ services:
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
 #      - POSTGRES_PASSWORD=magical_password
       - POSTGRES_DB=my_app_db
+#      - POSTGRES_HOST_AUTH_METHOD=trust    # To skip requiring password locally
     volumes:
       - postgres_data:/var/lib/postgresql/data/ # persist data even if container shuts down
     networks:
