@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  grafana:
+    container_name: "grafana_core"
+    image: grafana/grafana # use official version
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    volumes:
+      - ./grafana_data:/etc/grafana/provisioning/datasources # persist data even if container shuts down
+    networks:
+      - my-network
+    restart: unless-stopped
+
+networks:
+  my-network:
