@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  dynamodb-core:
+    container_name: memcached-core
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+    command: ["-m", "64"]
+    environment:
+      - MEMCACHED_USERNAME=${MEMCACHED_USERNAME}
+      - MEMCACHED_PASSWORD=${MEMCACHED_PASSWORD}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "echo", "stats", "|", "nc", "localhost", "11211"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: 0.5
+          memory: 0.5G
