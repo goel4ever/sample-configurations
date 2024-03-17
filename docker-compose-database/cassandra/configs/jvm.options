@@ -1,0 +1,6 @@
+# Initial heap size settings
+-Xms1G
+# Maximum heap size settings
+-Xmx1G
+# Enable the CMS Garbage Collector
+-XX:+UseConcMarkSweepGC

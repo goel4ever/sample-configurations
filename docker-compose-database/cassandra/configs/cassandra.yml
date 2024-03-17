@@ -1,0 +1,12 @@
+cluster_name: 'Test Cluster'
+num_tokens: 256
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+      - seeds: "127.0.0.1"
+listen_address: localhost
+rpc_address: localhost
+endpoint_snitch: SimpleSnitch
+data_file_directories:
+  - /var/lib/cassandra/data
+commitlog_directory: /var/lib/cassandra/commitlog
