@@ -3,14 +3,12 @@ version: "3.8"
 services:
   rabbitmq:
     container_name: "rabbitmq_core"
-    image: library/rabbitmq:management # use official version
+    image: rabbitmq:3.13.0-management-alpine # use official version
     ports:
-      - 15672:15672
-      - 5672:5672
-    environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-      RABBITMQ_DEFAULT_VHOST: "/"
+      - "15672:15672"
+      - "5672:5672"
+    env_file:
+      - rabbitmq.env
     volumes:
       - "./enabled_plugins:/etc/rabbitmq/enabled_plugins"
 #      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro"
@@ -19,6 +17,7 @@ services:
       - my-network
     labels:
       NAME: "rabbitmq1"
+    restart: unless-stopped
 
 volumes:
   rabbitmq_data:
