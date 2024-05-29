@@ -1,14 +1,13 @@
 version: '3.8'
 services:
   dynamodb-core:
-    container_name: memcached-core
+    container_name: memcached_core
     image: memcached:latest
     ports:
       - "11211:11211"
     command: ["-m", "64"]
-    environment:
-      - MEMCACHED_USERNAME=${MEMCACHED_USERNAME}
-      - MEMCACHED_PASSWORD=${MEMCACHED_PASSWORD}
+    env_file:
+      - memcached.env
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "echo", "stats", "|", "nc", "localhost", "11211"]
