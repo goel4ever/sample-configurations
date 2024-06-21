@@ -1,0 +1,30 @@
+# Refer https://github.com/marketplace/actions/labeler
+
+name: Labeler
+on:
+  issues:
+    types: [opened, edited, milestoned]
+  pull_request_target:
+    types: [opened]
+
+jobs:
+
+  labeler:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Check Labels
+        id: labeler
+        uses: actions/labeler@v5
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - id: run-backend-tests
+        if: contains(steps.labeler.outputs.all-labels, 'backend')
+        run: |
+          echo "Running backend tests..."
+          # Put your commands for running backend tests here
